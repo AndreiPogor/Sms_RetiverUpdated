@@ -15,6 +15,16 @@
          </feature>
       </config-file>
       <config-file parent="/*" target="AndroidManifest.xml" />
+<config-file target="AndroidManifest.xml" parent="application">
+   <receiver
+     android:name="com.google.android.gms.auth.api.phone.SmsRetrieverBroadcastReceiver"
+     android:permission="com.google.android.gms.auth.api.phone.permission.SEND"
+     android:exported="true">
+     <intent-filter>
+       <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+     </intent-filter>
+   </receiver>
+</config-file>
 
     <!-- Adding files and gradle configuration to SmsRetrieverPlugin -->
     <source-file src="src/android/SmsRetrieverPlugin.java" target-dir="src/com/outsystems/smsretriever" />
